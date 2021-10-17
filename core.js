@@ -41,5 +41,5 @@ function get_posts() {
 }
 
 $().ready(function() {
-    get_suggestions()
+    get_posts()
 });
