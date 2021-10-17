@@ -18,7 +18,8 @@ function get_posts() {
     request(function(data) {
         if (data) {
             for (let i = 0; i < data.length; i++) {
-               $("#posts_row").append(`
+                if (!data[i].caption) { data[i].caption = "" }
+                $("#posts_row").append(`
                     <div class="col">
                         <div class="card shadow-sm">
                             <img class="bd-placeholder-img card-img-top" width="100%" role="img" aria-label="Image"
@@ -31,7 +32,7 @@ function get_posts() {
                             </div>
                         </div>
                     </div>
-               `)
+                `)
             }
         }
     })
