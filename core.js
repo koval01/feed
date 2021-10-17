@@ -22,7 +22,7 @@ function get_posts() {
                     <div class="col">
                         <div class="card shadow-sm">
                             <img class="bd-placeholder-img card-img-top" width="100%" role="img" aria-label="Image"
-                                src="${data[i].img_link}">
+                                src="https://feedimages.herokuapp.com/image?l=${data[i].img_link}">
                             <div class="card-body">
                                 <p class="card-text">${data[i].caption}</p>
                                 <div class="d-flex justify-content-between align-items-center">
