@@ -41,8 +41,12 @@ function get_posts() {
                 `)
             }
             error_loading = false
-        } else { error_loading = true }
-        $("#spinnerload").css("display", "none");
+        } else { 
+            error_loading = true 
+        }
+        if (!error_loading) {
+            $("#spinnerload").css("display", "none") 
+        }
         load_freeze = false;
     })
 }
