@@ -27,7 +27,7 @@ function get_posts() {
                                 <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
                             </svg>
                             <div class="card-body">
-                                <p class="card-text"></p>
+                                <p class="card-text">${data[i].caption}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">❤️ ${data[i].likes_count}</small>
                                 </div>
