@@ -21,28 +21,32 @@ function request(callback) {
 function get_posts() {
     $("#spinnerload").css("display", "flex");
     request(function(data) {
-        if (data) {
-            if (!first_load) { first_load = true }
-            for (let i = 0; i < data.length; i++) {
-                if (!data[i].caption) { data[i].caption = "No caption 🗿" }
-                $("#posts_row").append(`
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <img class="bd-placeholder-img card-img-top" width="100%" role="img" aria-label="Image"
-                                src="https://feedimages.herokuapp.com/image?l=${data[i].img_link}">
-                            <div class="card-body">
-                                <p class="card-text">${data[i].caption}</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">❤️ ${data[i].likes_count}</small>
+        try {
+            if (data && data.length > 1) {
+                if (!first_load) { first_load = true }
+                for (let i = 0; i < data.length; i++) {
+                    if (!data[i].caption) { data[i].caption = "No caption 🗿" }
+                    $("#posts_row").append(`
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img class="bd-placeholder-img card-img-top" width="100%" role="img" aria-label="Image"
+                                    src="https://feedimages.herokuapp.com/image?l=${data[i].img_link}">
+                                <div class="card-body">
+                                    <p class="card-text">${data[i].caption}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">❤️ ${data[i].likes_count}</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                `)
+                    `)
+                }
+                error_loading = false
+            } else { 
+                error_loading = true 
             }
-            error_loading = false
-        } else { 
-            error_loading = true 
+        } catch {
+            console.log("Error check data!")
         }
         if (!error_loading) {
             $("#spinnerload").css("display", "none") 
@@ -67,6 +71,6 @@ $().ready(function() {
     });
     
     setInterval(function() {
-        if (error_loading || $("#posts_row").length < 6) { get_posts(), error_loading = false }
+        if (error_loading) { get_posts(), error_loading = false }
     }, 200);
 });
