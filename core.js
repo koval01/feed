@@ -15,7 +15,7 @@ function request(callback) {
 }
 
 function get_posts() {
-    $("#spinnerload").css("display", "block");
+    $("#spinnerload").css("display", "flex");
     request(function(data) {
         if (data) {
             for (let i = 0; i < data.length; i++) {
