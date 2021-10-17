@@ -61,9 +61,6 @@ $().ready(function() {
     });
     
     setInterval(function() {
-        if (!$("#posts_row").length && first_load && !load_freeze) {
-            load_freeze = true;
-            get_posts() 
-        }
+        if (!$("#posts_row").length && first_load) { get_posts() }
     }, 1000);
 });
