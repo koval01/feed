@@ -29,7 +29,7 @@ function get_posts() {
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">❤️ ${data.likes_count}</small>
+                                    <small class="text-muted">❤️ ${data[i].likes_count}</small>
                                 </div>
                             </div>
                         </div>
