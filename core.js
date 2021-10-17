@@ -60,5 +60,5 @@ $().ready(function() {
         }
     });
     
-    setInverval(get_posts, 5000);
+    setInterval(get_posts, 3000);
 });
