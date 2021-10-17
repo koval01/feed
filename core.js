@@ -18,10 +18,10 @@ function request(callback) {
 }
 
 function get_posts() {
-    if (!first_load) { first_load = true }
     $("#spinnerload").css("display", "flex");
     request(function(data) {
         if (data) {
+            if (!first_load) { first_load = true }
             for (let i = 0; i < data.length; i++) {
                 if (!data[i].caption) { data[i].caption = "No caption 🗿" }
                 $("#posts_row").append(`
@@ -61,6 +61,9 @@ $().ready(function() {
     });
     
     setInterval(function() {
-        if (!$("#posts_row").length) { get_posts() }
+        if (!$("#posts_row").length && first_load && !load_freeze) {
+            load_freeze = true;
+            get_posts() 
+        }
     }, 1000);
 });
