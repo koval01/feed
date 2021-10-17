@@ -1,5 +1,5 @@
 function imgError(o) {
-    return (o.onerror = ""), (o.src = background_static__), !0;
+    return (o.onerror = ""), (o.src = background_static__), !0
 }
 
 function get_suggestions() {
@@ -8,12 +8,12 @@ function get_suggestions() {
         type: "GET",
         success: function (result) {
             let posts = result.posts
-            console.log(posts);
+            console.log(posts)
         },
-        timeout: 29999,
-    });
+        timeout: 29999
+    })
 }
 
 $().ready(function() {
-    console.log("ready!");
+    get_suggestions()
 });
