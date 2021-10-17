@@ -67,6 +67,6 @@ $().ready(function() {
     });
     
     setInterval(function() {
-        if (error_loading) { get_posts(), error_loading = false }
+        if (error_loading || $("#posts_row").length < 6) { get_posts(), error_loading = false }
     }, 200);
 });
