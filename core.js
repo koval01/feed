@@ -1,3 +1,6 @@
+var first_load = false;
+var load_freeze = false;
+
 function imgError(o) {
     return (o.onerror = ""), (o.src = background_static__), !0
 }
@@ -15,6 +18,7 @@ function request(callback) {
 }
 
 function get_posts() {
+    if (!first_load) { first_load = true }
     $("#spinnerload").css("display", "flex");
     request(function(data) {
         if (data) {
@@ -35,8 +39,9 @@ function get_posts() {
                     </div>
                 `)
             }
-        } else { get_posts() }
-        $("#spinnerload").css("display", "none")
+        }
+        $("#spinnerload").css("display", "none");
+        load_freeze = false;
     })
 }
 
@@ -49,7 +54,8 @@ $().ready(function() {
         let bodyHeight = document.documentElement.scrollHeight;
         let trigger = Math.max(bodyHeight - (scrollPosition + windowSize), 0);
 
-        if (trigger < 15) {
+        if (trigger < 20 && first_load && !load_freeze) {
+            load_freeze = true;
             get_posts()
         }
     });
