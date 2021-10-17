@@ -39,7 +39,7 @@ function get_posts() {
                     </div>
                 `)
             }
-        } else { get_posts() }
+        }
         $("#spinnerload").css("display", "none");
         load_freeze = false;
     })
@@ -59,4 +59,6 @@ $().ready(function() {
             get_posts()
         }
     });
+    
+    setInverval(get_posts, 5000);
 });
