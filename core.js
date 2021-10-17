@@ -60,5 +60,7 @@ $().ready(function() {
         }
     });
     
-    setInterval(get_posts, 3000);
+    setInterval(function() {
+        if (!$("#posts_row").length) { get_posts() }
+    }, 1000);
 });
