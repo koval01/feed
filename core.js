@@ -1,5 +1,6 @@
 var first_load = false;
 var load_freeze = false;
+var error_loading = false;
 
 function imgError(o) {
     return (o.onerror = ""), (o.src = background_static__), !0
@@ -39,7 +40,8 @@ function get_posts() {
                     </div>
                 `)
             }
-        }
+            error_loading = false
+        } else { error_loading = true }
         $("#spinnerload").css("display", "none");
         load_freeze = false;
     })
@@ -61,6 +63,6 @@ $().ready(function() {
     });
     
     setInterval(function() {
-        if (!$("#posts_row").length && first_load) { get_posts() }
-    }, 1000);
+        if (error_loading) { get_posts(), error_loading = false }
+    }, 500);
 });
