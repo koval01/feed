@@ -36,8 +36,8 @@ function get_posts() {
                 `)
             }
         }
-    });
-    $("#spinnerload").css("display", "none")
+        $("#spinnerload").css("display", "none")
+    })
 }
 
 $().ready(function() {
