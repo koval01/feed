@@ -41,5 +41,16 @@ function get_posts() {
 }
 
 $().ready(function() {
-    get_posts()
+    get_posts();
+    
+    $(window).scroll(function () {
+        let scrollPosition = window.pageYOffset;
+        let windowSize = window.innerHeight;
+        let bodyHeight = document.documentElement.scrollHeight;
+        let trigger = Math.max(bodyHeight - (scrollPosition + windowSize), 0);
+
+        if (trigger < 15) {
+            get_posts()
+        }
+    });
 });
