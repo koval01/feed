@@ -35,7 +35,7 @@ function get_posts() {
                     </div>
                 `)
             }
-        }
+        } else { get_posts() }
         $("#spinnerload").css("display", "none")
     })
 }
