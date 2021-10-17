@@ -18,7 +18,7 @@ function get_posts() {
     request(function(data) {
         if (data) {
             for (let i = 0; i < data.length; i++) {
-                if (!data[i].caption) { data[i].caption = "" }
+                if (!data[i].caption) { data[i].caption = "No caption 🗿" }
                 $("#posts_row").append(`
                     <div class="col">
                         <div class="card shadow-sm">
