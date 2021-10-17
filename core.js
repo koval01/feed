@@ -60,7 +60,7 @@ $().ready(function() {
         let bodyHeight = document.documentElement.scrollHeight;
         let trigger = Math.max(bodyHeight - (scrollPosition + windowSize), 0);
 
-        if (trigger < 1250 && first_load && !load_freeze) {
+        if (trigger < 1650 && first_load && !load_freeze) {
             load_freeze = true;
             get_posts()
         }
@@ -68,5 +68,5 @@ $().ready(function() {
     
     setInterval(function() {
         if (error_loading) { get_posts(), error_loading = false }
-    }, 500);
+    }, 200);
 });
