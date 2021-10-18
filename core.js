@@ -32,9 +32,12 @@ function get_posts() {
                                 <img class="bd-placeholder-img card-img-top" width="100%" role="img" aria-label="Image"
                                     src="https://feedimages.herokuapp.com/image?l=${data[i].img_link}">
                                 <div class="card-body">
-                                    <p class="card-text">${data[i].caption}</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">❤️ ${data[i].likes_count}</small>
+                                        <small class="text-muted">
+                                            ❤️ ${data[i].likes_count} | 
+                                            <a href="https://www.instagram.com/p/${data[i].shortcode}/" 
+                                                target="_blank">Go to post</a>
+                                        </small>
                                     </div>
                                 </div>
                             </div>
