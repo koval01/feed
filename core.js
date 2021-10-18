@@ -8,7 +8,7 @@ function imgError(o) {
 
 function request(callback) {
     $.ajax({
-        url: "https://feedimages.herokuapp.com/random",
+        url: "https://endlessness.herokuapp.com/random",
         type: "GET",
         success: function (result) {
             if (result.success) { callback(result.posts) }
@@ -30,7 +30,7 @@ function get_posts() {
                         <div class="col">
                             <div class="card shadow-sm">
                                 <img class="bd-placeholder-img card-img-top" width="100%" role="img" aria-label="Image"
-                                    src="https://feedimages.herokuapp.com/image?l=${data[i].img_link}">
+                                    src="https://endlessness.herokuapp.com/image?l=${data[i].img_link}">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <small class="text-muted">
