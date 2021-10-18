@@ -19,6 +19,12 @@
   color: #fff;
   text-decoration: none;
 }
+.header_text {
+    color:#fff !important;
+    text-decoration:none !important;
+    font-family: 'Yesteryear', cursive !important;
+    font-size: 1.3em !important;
+}
 
 /*
  * Dummy devices (replace them with your own or something else entirely!)
