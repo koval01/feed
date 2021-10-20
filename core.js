@@ -14,11 +14,9 @@ function request(callback) {
             try {
                 if (result.success) { callback(result.posts) }
                 else { callback(result.success) }
-            } catch {
-                callback(false)
-            }
+            } catch { callback(false) }
         },
-        timeout: 29999
+        timeout: 29599
     })
 }
 
@@ -40,15 +38,10 @@ function get_posts() {
                     `)
                 }
                 error_loading = false
-            } else { 
-                error_loading = true 
-            }
-        } catch {
-            console.log("Error check data!")
-        }
-        if (!error_loading) {
-            $("#spinnerload").css("display", "none") 
-        }
+            } else { error_loading = true }
+        } catch { error_loading = true, console.log("Error check data!") }
+        if (!error_loading) { $("#spinnerload").css("display", "none") }
+        else { $.notify("Loading error!", "info"); }
         load_freeze = false;
     })
 }
@@ -63,9 +56,7 @@ $().ready(function() {
         let trigger = Math.max(bodyHeight - (scrollPosition + windowSize), 0);
 
         if (trigger < (25 * 5000) && first_load && !load_freeze) {
-            load_freeze = true;
-            get_posts()
-        }
+            load_freeze = true, get_posts() }
     });
     
     setInterval(function() {
