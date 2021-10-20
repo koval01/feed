@@ -41,7 +41,7 @@ function get_posts() {
             } else { error_loading = true }
         } catch { error_loading = true, console.log("Error check data!") }
         if (!error_loading) { $("#spinnerload").css("display", "none") }
-        else { $.notify("Loading error!", "info"); }
+        else { let x = "" }
         load_freeze = false;
     })
 }
