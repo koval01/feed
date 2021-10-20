@@ -3,10 +3,6 @@ var load_freeze = false;
 var error_loading = false;
 var notify_hidden = true;
 
-function imgError(o) {
-    return (o.onerror = ""), (o.src = background_static__), !0
-}
-
 function notify(text) {
     const error_box = $(".error_box");
     const error_text = $(".error_text");
@@ -21,6 +17,10 @@ function notify(text) {
         error_box.css("margin-bottom", "0");
         setTimeout(function() { error_box.css("margin-bottom", "-50px") }, 2500);
     }
+}
+
+function imgError(o) {
+    return (o.onerror = ""), (o.src = background_static__), notify("Error loading photo!"), !0
 }
 
 function request(callback) {
@@ -58,7 +58,7 @@ function get_posts() {
             } else { error_loading = true }
         } catch { error_loading = true, console.log("Error check data!") }
         if (!error_loading) { $("#spinnerload").css("display", "none") }
-        else { notify("Loading error!") }
+        else { notify("Error loading feed from server!") }
         load_freeze = false;
     })
 }
