@@ -1,2 +1,2 @@
 # feed
-Images feed
+Q-Writer.com Frontend
