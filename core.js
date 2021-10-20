@@ -31,7 +31,7 @@ function get_posts() {
                             <div class="card shadow-sm">
                                 <img class="bd-placeholder-img card-img-top" width="100%" role="img" aria-label="Image"
                                     src="https://endlessness.herokuapp.com/image?l=${data[i].img_link}">
-                                <div class="card-body">
+                                <!-- <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <small class="text-muted">
                                             ❤️ ${data[i].likes_count} | 
@@ -39,7 +39,7 @@ function get_posts() {
                                                 target="_blank">Go to post</a>
                                         </small>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     `)
