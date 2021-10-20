@@ -84,3 +84,16 @@
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.error_text {
+  color: #fff;
+  text-align: right;
+  padding-right: 10px;
+  margin-top: 0.5em;
+}
+.error_box {
+  bottom: 0;
+  position: absolute;
+  background: #2d2d2d;
+  width: 100%;
+  height: 40px;
+}
