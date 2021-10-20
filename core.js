@@ -25,7 +25,7 @@ function notify(text) {
 
 function request(callback) {
     $.ajax({
-        url: "https://endlessness.herokuapp.com/random",
+        url: "https://backend.q-writer.com/random",
         type: "GET",
         success: function (result) {
             try {
@@ -49,7 +49,7 @@ function get_posts() {
                         <div class="col">
                             <div class="card shadow-sm">
                                 <img class="bd-placeholder-img card-img-top" width="100%" role="img" aria-label="Image"
-                                    src="https://endlessness.herokuapp.com/image?l=${data[i].img_link}">
+                                    src="https://backend.q-writer.com/image?l=${data[i].img_link}">
                             </div>
                         </div>
                     `)
