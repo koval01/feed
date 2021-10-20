@@ -1,6 +1,7 @@
 var first_load = false;
 var load_freeze = false;
 var error_loading = false;
+var notify_hidden = true;
 
 function imgError(o) {
     return (o.onerror = ""), (o.src = background_static__), !0
@@ -44,6 +45,22 @@ function get_posts() {
         else { let x = "" }
         load_freeze = false;
     })
+}
+
+function notify(text) {
+    const error_box = $(".error_box");
+    const error_text = $(".error_text");
+    
+    let ready = false;
+    
+    if (notify_hidden) { ready = true } 
+    else { error_box.css("margin-bottom", "-50px"), ready = true }
+    
+    if (ready) {
+        error_text.text(text);
+        error_box.css("margin-bottom", "0");
+        setTimeout(function() { error_box.css("margin-bottom", "-50px") }, 2500);
+    }
 }
 
 $().ready(function() {
