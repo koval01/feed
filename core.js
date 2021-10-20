@@ -11,8 +11,12 @@ function request(callback) {
         url: "https://endlessness.herokuapp.com/random",
         type: "GET",
         success: function (result) {
-            if (result.success) { callback(result.posts) }
-            else { callback(result.success) }
+            try {
+                if (result.success) { callback(result.posts) }
+                else { callback(result.success) }
+            } catch {
+                callback(false)
+            }
         },
         timeout: 29999
     })
