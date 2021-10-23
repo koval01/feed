@@ -28,12 +28,11 @@ function request(callback) {
         url: "https://backend.q-writer.com/random",
         type: "GET",
         success: function (result) {
-            try {
-                if (result.success) { callback(result.posts) }
-                else { callback(result.success) }
-            } catch { callback(false) }
+            if (result.success) { callback(result.posts) }
+            else { callback(result.success) }
         },
-        timeout: 29599
+        error: function (e) { callback(false) }
+        timeout: 29999
     })
 }
 
