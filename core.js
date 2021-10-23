@@ -31,7 +31,7 @@ function request(callback) {
             if (result.success) { callback(result.posts) }
             else { callback(result.success) }
         },
-        error: function (e) { callback(false) }
+        error: function (e) { callback(false) },
         timeout: 29999
     })
 }
