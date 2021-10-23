@@ -77,5 +77,5 @@ $().ready(function() {
     
     setInterval(function() {
         if (error_loading) { get_posts(), error_loading = false }
-    }, 200);
+    }, 2000);
 });
