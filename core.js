@@ -71,7 +71,7 @@ $().ready(function() {
         let bodyHeight = document.documentElement.scrollHeight;
         let trigger = Math.max(bodyHeight - (scrollPosition + windowSize), 0);
 
-        if (trigger < (25 * 5000) && first_load && !load_freeze) {
+        if (trigger < 250 && first_load && !load_freeze) {
             load_freeze = true, get_posts() }
     });
     
